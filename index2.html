@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Image Carousel</title>
+  
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
+
+:root {
+  --bg: hsl(0 0% 5%);
+  --white: hsl(0 0% 90%);
+  --accent: hsl(0 0% 10%);
+  --highlight: #03dac6;
+  --swiper-navigation-color: #fff;
+  --swiper-navigation-size: 1.1em;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Nunito Sans", sans-serif;
+  box-sizing: border-box;
+  background: var(--bg);
+  user-select: none;
+}
+
+.wrapper {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.swiper-slide {
+  position: relative;
+  width: 33%;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  border-radius: 10px;
+
+  .swiper-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .swiper-description {
+    position: absolute;
+    bottom: 0;
+    padding: 0.5em;
+    color: var(--white);
+    transform: translateY(100vh);
+    transition: transform 0.3s ease;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.7rem;
+      margin-top: 0.5em;
+    }
+  }
+}
+
+.swiper-slide:hover {
+  .swiper-overlay {
+    opacity: 0.5;
+  }
+
+  .swiper-description {
+    transform: translateY(0);
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background: rgba(255, 255, 255, 40%);
+  border-radius: 100%;
+  padding: 1em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.swiper-button-next::after {
+  margin-left: 0.2em;
+}
+
+.swiper-slide:not(.swiper-slide-visible) {
+  opacity: 0;
+}
+
+</style>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Image Carousel</title>
+    </head>
+    <body>
+    
+      <h2>Image Slider3</h2>
+
+      <div class="slide_wrap">
+        <div class="slide_show">
+        <div class="slide_img">
+          <div class="slide"><img src="https://tistory4.daumcdn.net/tistory/2980705/skin/images/hover01.jpg" alt="이미지1"></div>
+          <div class="slide"><img src="https://tistory4.daumcdn.net/tistory/2980705/skin/images/hover02.jpg" alt="이미지2"></div>
+          <div class="slide"><img src="https://tistory4.daumcdn.net/tistory/2980705/skin/images/hover03.jpg" alt="이미지3"></div>
+          <div class="slide"><img src="https://tistory4.daumcdn.net/tistory/2980705/skin/images/hover04.jpg" alt="이미지4"></div>
+          <div class="slide"><img src="https://tistory4.daumcdn.net/tistory/2980705/skin/images/hover05.jpg" alt="이미지5"></div>
+          </div> 
+        </div>
+        <div class="slide_btn">
+          <a href="#" class="prev"><i class="fas fa-angle-left"></i></a>
+          <a href="#" class="next"><i class="fas fa-angle-right"></i></a>
+        </div>
+      </div>
+      
+    
+    <script src="script.js"></script>
+    </body>
+    </html>
+    
+
+<script >
+var swiper = new Swiper(".swiper", {
+  loop: true,
+  slidesPerView: 3,
+  effect: "coverflow",
+  coverflowEffect: {
+    rotate: 20,
+    slideShadows: true
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false
+  }
+});
+
+</script>
+</body>
+</html>
